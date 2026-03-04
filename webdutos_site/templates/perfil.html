@@ -4,38 +4,90 @@
     <title>Perfil - {{ funcionario.nome }}</title>
     <style>
         body {
-            font-family: Arial;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
             text-align: center;
-            background-color: #f4f4f4;
+            min-height: 100vh;
         }
 
         .card {
             background: white;
-            width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            width: 450px;
+            max-width: 90%;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            margin-top: 15px;
+            font-size: 2rem;
+        }
+
+        .cargo {
+            color: gray;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .descricao {
+            margin-top: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
         }
 
         .voltar {
             display: inline-block;
-            margin-top: 20px;
-            padding: 8px 15px;
-            background-color: gray;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: #2c5364;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: 0.3s;
         }
+
+        .voltar:hover {
+            background: #203a43;
+        }
+
+        /* Responsivo */
+        @media (max-width: 480px) {
+            .card {
+                width: 95%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .foto {
+                width: 120px;
+                height: 120px;
+            }
+            .descricao {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="card">
+        <img class="foto" src="{{ url_for('static', filename='fotos/' + funcionario.foto) }}">
         <h1>{{ funcionario.nome }}</h1>
-        <h3>{{ funcionario.cargo }}</h3>
-        <p>{{ funcionario.descricao }}</p>
-
+        <p class="cargo">{{ funcionario.cargo }}</p>
+        <p class="descricao">{{ funcionario.descricao }}</p>
         <a class="voltar" href="/">Voltar</a>
     </div>
 
