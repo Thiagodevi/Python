@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil - {{ funcionario.nome }}</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .card {
+            background: white;
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: gray;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>{{ funcionario.nome }}</h1>
+        <h3>{{ funcionario.cargo }}</h3>
+        <p>{{ funcionario.descricao }}</p>
+
+        <a class="voltar" href="/">Voltar</a>
+    </div>
+
+</body>
+</html>
